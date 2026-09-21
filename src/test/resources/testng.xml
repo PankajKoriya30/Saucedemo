@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="SauceDemo Automation Suite">
+
+    <test name="SauceDemo Tests">
+
+        <classes>
+            <class name="com.learn.automation.driver.tests.VerifyLogin"/>
+            <class name="com.learn.automation.driver.tests.VerifyProduct"/>
+            <class name="com.learn.automation.driver.tests.VerifyAddProductToCart"/>
+            <class name="com.learn.automation.driver.tests.VerifyCheckoutValidation"/>
+            <class name="com.learn.automation.driver.tests.VerifyProductSorting"/>
+            <class name="com.learn.automation.driver.tests.VerifyRemoveProductFromCart"/>
+            <class name="com.learn.automation.driver.tests.VerifyCheckoutFlow"/>
+        </classes>
+
+    </test>
+
+</suite>
