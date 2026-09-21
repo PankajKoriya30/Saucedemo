@@ -1,14 +1,10 @@
 package com.learn.automation.driver.tests;
 
-import com.learn.automation.driver.DriverFactory;
 import com.learn.automation.driver.pages.LoginPage;
 import com.learn.automation.driver.pages.ProductsPage;
-import com.learn.automation.utils.ConfigReader;
 import com.learn.automation.utils.TestDataReader;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,27 +12,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class VerifyProductSorting {
+public class VerifyProductSorting extends BaseTest {
 
-    private WebDriver driver;
     private LoginPage loginPage;
     private ProductsPage productsPage;
 
     @BeforeMethod
-    public void setup() {
-        System.out.println("Creating browser");
-        ConfigReader.loadProperties("qa");
-        TestDataReader.loadProperties("testdata");
-        driver = DriverFactory.createDriver(ConfigReader.getProperty("browser"));
-        driver.get(ConfigReader.getProperty("url"));
+    public void commomOperation() {
         loginPage = new LoginPage(driver);
+        loginPage.enterUsername(TestDataReader.getTestData("username"));
+        loginPage.enterPassword(TestDataReader.getTestData("password"));
+        productsPage = loginPage.clickLogin();
     }
 
     @Test
     public void verifyProductSorting() {
-        loginPage.enterUsername(TestDataReader.getTestData("username"));
-        loginPage.enterPassword(TestDataReader.getTestData("password"));
-        productsPage = loginPage.clickLogin();
+
         String pageTitle = productsPage.getProductsPageTitle();
         Assert.assertEquals(pageTitle, "Products");
         productsPage.sortProductsPriceLowToHigh();
@@ -46,9 +37,6 @@ public class VerifyProductSorting {
 
     @Test
     public void verifyProductSortingWithAllProducts() {
-        loginPage.enterUsername(TestDataReader.getTestData("username"));
-        loginPage.enterPassword(TestDataReader.getTestData("password"));
-        productsPage = loginPage.clickLogin();
         String pageTitle = productsPage.getProductsPageTitle();
         Assert.assertEquals(pageTitle, "Products");
         productsPage.sortProductsPriceLowToHigh();
@@ -64,17 +52,8 @@ public class VerifyProductSorting {
 
     @Test
     public void verifyProductsPageTitle(){
-        loginPage.enterUsername(TestDataReader.getTestData("username"));
-        loginPage.enterPassword(TestDataReader.getTestData("password"));
-        productsPage = loginPage.clickLogin();
         Assert.assertEquals(productsPage.getProductsPageTitle(),
                 "Products",
                 "Products page title is not matching.");
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        System.out.println("Closing browser");
-        DriverFactory.quitDriver();
     }
 }
