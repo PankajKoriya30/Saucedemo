@@ -15,18 +15,20 @@ public class DriverFactory {
 
     public static WebDriver createDriver(String browser){
 
-        ChromeOptions options = new ChromeOptions();
-        Map<String, Object> prefs = new HashMap<>();
+        if (browser==null || browser.trim().isEmpty()){
+            throw new IllegalArgumentException("Browser is not configured.");
+        }
 
-        // Disable Chrome password manager
-        prefs.put("credentials_enable_service", false);
-        prefs.put("profile.password_manager_enabled", false);
-        prefs.put("profile.password_manager_leak_detection", false);
-
-        options.setExperimentalOption("prefs", prefs);
-
-        switch (browser.toLowerCase()){
+        switch (browser.trim().toLowerCase()){
             case "chrome":
+                ChromeOptions options = new ChromeOptions();
+                Map<String, Object> prefs = new HashMap<>();
+
+                // Disable Chrome password manager
+                prefs.put("credentials_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                prefs.put("profile.password_manager_leak_detection", false);
+                options.setExperimentalOption("prefs", prefs);
                 driver = new ChromeDriver(options);
                 break;
             case "firefox":

@@ -3,7 +3,6 @@ package com.learn.automation.driver.tests;
 import com.learn.automation.driver.pages.LoginPage;
 import com.learn.automation.driver.pages.ProductsPage;
 import com.learn.automation.utils.TestDataReader;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
