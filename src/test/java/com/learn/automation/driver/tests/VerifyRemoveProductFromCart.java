@@ -15,7 +15,7 @@ public class VerifyRemoveProductFromCart extends BaseTest{
         private ProductsPage productsPage;
         private CartPage cartPage;
 
-        @Test
+        @Test(groups = "regression")
         public void verifyRemoveProductFromCart(){
             loginPage = new LoginPage(driver);
             loginPage.enterUsername(TestDataReader.getTestData("username"));

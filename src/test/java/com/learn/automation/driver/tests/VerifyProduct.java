@@ -10,7 +10,7 @@ public class VerifyProduct extends BaseTest {
 
     private LoginPage loginPage;
 
-    @Test
+    @Test(groups = "smoke")
     public void verifyProductBackpack() {
         loginPage = new LoginPage(driver);
         loginPage.enterUsername(TestDataReader.getTestData("username"));

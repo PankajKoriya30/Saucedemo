@@ -13,7 +13,7 @@ public class VerifyAddProductToCart extends BaseTest{
     private ProductsPage productsPage;
     private CartPage cartPage;
 
-    @Test
+    @Test(groups = {"smoke","regression"})
     public void verifyAddToCart() {
 
         loginPage = new LoginPage(driver);

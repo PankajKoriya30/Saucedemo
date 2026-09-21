@@ -16,7 +16,7 @@ public class VerifyCheckoutValidation extends BaseTest{
     private CartPage cartPage;
     private CheckoutInfoPage checkoutInfoPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void commomOperation(){
         loginPage = new LoginPage(driver);
         loginPage.enterUsername(TestDataReader.getTestData("username"));
@@ -30,7 +30,7 @@ public class VerifyCheckoutValidation extends BaseTest{
         checkoutInfoPage = cartPage.clickCheckout();
 
     }
-    @Test
+    @Test(groups = {"regression", "checkout"})
     public void verifyFirstNameRequiredValidation() {
         // Verify validation message for First Name field
         checkoutInfoPage.enterLastName(TestDataReader.getTestData("lastname"));
@@ -41,7 +41,7 @@ public class VerifyCheckoutValidation extends BaseTest{
         Assert.assertEquals(checkoutInfoPage.getCheckoutPageTitle(), "Checkout: Your Information",
                 "Checkout your information page is not displaying.");
     }
-    @Test
+    @Test(groups = {"regression", "checkout"})
     public void verifyLastNameRequiredValidation() {
         // Verify validation message for Last Name field
         checkoutInfoPage.enterFirstName(TestDataReader.getTestData("firstname"));
@@ -53,7 +53,7 @@ public class VerifyCheckoutValidation extends BaseTest{
                 "Checkout your information page is not displaying.");
     }
 
-    @Test
+    @Test(groups = {"regression", "checkout"})
     public void verifyPostalCodeRequiredValidation(){
         // Verify validation message for Postal code field
         checkoutInfoPage.enterFirstName(TestDataReader.getTestData("firstname"));

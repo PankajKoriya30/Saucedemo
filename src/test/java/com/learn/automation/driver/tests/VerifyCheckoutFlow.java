@@ -16,7 +16,7 @@ public class VerifyCheckoutFlow extends BaseTest{
     private CheckoutOverviewPage checkoutOverviewPage;
     private OrderConfirmationPage orderConfirmationPage;
 
-    @Test
+    @Test(groups = {"regression", "checkout"})
     public void verifyCheckoutE2EFlow() {
 
         //Log in to application

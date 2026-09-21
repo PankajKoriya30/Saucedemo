@@ -10,7 +10,7 @@ public class VerifyLogin extends BaseTest{
 
         private LoginPage loginPage;
 
-        @Test
+        @Test(groups = "smoke")
         public void verifySuccessLogin(){
             loginPage = new LoginPage(driver);
             loginPage.enterUsername(TestDataReader.getTestData("username"));

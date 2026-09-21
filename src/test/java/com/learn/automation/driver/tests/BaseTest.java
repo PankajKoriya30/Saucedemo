@@ -11,7 +11,7 @@ public class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setup(){
 
         ConfigReader.loadProperties("qa");
@@ -20,7 +20,7 @@ public class BaseTest {
         driver.get(ConfigReader.getProperty("url"));
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
         DriverFactory.quitDriver();
     }

@@ -5,16 +5,24 @@
 <suite name="SauceDemo Automation Suite">
 
     <test name="SauceDemo Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
 
-        <classes>
-            <class name="com.learn.automation.driver.tests.VerifyLogin"/>
-            <class name="com.learn.automation.driver.tests.VerifyProduct"/>
-            <class name="com.learn.automation.driver.tests.VerifyAddProductToCart"/>
-            <class name="com.learn.automation.driver.tests.VerifyCheckoutValidation"/>
-            <class name="com.learn.automation.driver.tests.VerifyProductSorting"/>
-            <class name="com.learn.automation.driver.tests.VerifyRemoveProductFromCart"/>
-            <class name="com.learn.automation.driver.tests.VerifyCheckoutFlow"/>
-        </classes>
+<!--        <classes>-->
+<!--            <class name="com.learn.automation.driver.tests.VerifyLogin"/>-->
+<!--            <class name="com.learn.automation.driver.tests.VerifyProduct"/>-->
+<!--            <class name="com.learn.automation.driver.tests.VerifyAddProductToCart"/>-->
+<!--            <class name="com.learn.automation.driver.tests.VerifyCheckoutValidation"/>-->
+<!--            <class name="com.learn.automation.driver.tests.VerifyProductSorting"/>-->
+<!--            <class name="com.learn.automation.driver.tests.VerifyRemoveProductFromCart"/>-->
+<!--            <class name="com.learn.automation.driver.tests.VerifyCheckoutFlow"/>-->
+<!--        </classes>-->
+        <packages>
+            <package name="com.learn.automation.driver.tests"/>
+        </packages>
 
     </test>
 

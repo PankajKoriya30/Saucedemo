@@ -17,7 +17,7 @@ public class VerifyProductSorting extends BaseTest {
     private LoginPage loginPage;
     private ProductsPage productsPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void commomOperation() {
         loginPage = new LoginPage(driver);
         loginPage.enterUsername(TestDataReader.getTestData("username"));
@@ -25,7 +25,7 @@ public class VerifyProductSorting extends BaseTest {
         productsPage = loginPage.clickLogin();
     }
 
-    @Test
+    @Test(groups = "regression")
     public void verifyProductSorting() {
 
         String pageTitle = productsPage.getProductsPageTitle();
