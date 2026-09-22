@@ -5,6 +5,7 @@
 <suite name="SauceDemo Automation Suite">
 
     <test name="SauceDemo Tests">
+        <parameter name="browser" value="chrome"/>
         <groups>
             <run>
                 <include name="smoke"/>
