@@ -1,11 +1,10 @@
-package com.learn.automation.driver.pages;
+package com.learn.automation.pages;
 
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
-import java.util.Locale;
 
 
 public class ProductsPage extends BasePage{

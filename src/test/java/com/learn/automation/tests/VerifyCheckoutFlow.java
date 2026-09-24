@@ -1,6 +1,6 @@
-package com.learn.automation.driver.tests;
+package com.learn.automation.tests;
 
-import com.learn.automation.driver.pages.*;
+import com.learn.automation.pages.*;
 import com.learn.automation.utils.TestDataReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package com.learn.automation.driver.pages;
+package com.learn.automation.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

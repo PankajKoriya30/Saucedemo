@@ -2,29 +2,42 @@
 
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="SauceDemo Automation Suite">
+<suite name="SauceDemo Automation Suite" parallel="tests" thread-count="3">
 
-    <test name="SauceDemo Tests">
+    <test name="SauceDemo Tests chrome">
         <parameter name="browser" value="chrome"/>
         <groups>
             <run>
-                <include name="smoke"/>
+                <include name="regression"/>
             </run>
         </groups>
-
-<!--        <classes>-->
-<!--            <class name="com.learn.automation.driver.tests.VerifyLogin"/>-->
-<!--            <class name="com.learn.automation.driver.tests.VerifyProduct"/>-->
-<!--            <class name="com.learn.automation.driver.tests.VerifyAddProductToCart"/>-->
-<!--            <class name="com.learn.automation.driver.tests.VerifyCheckoutValidation"/>-->
-<!--            <class name="com.learn.automation.driver.tests.VerifyProductSorting"/>-->
-<!--            <class name="com.learn.automation.driver.tests.VerifyRemoveProductFromCart"/>-->
-<!--            <class name="com.learn.automation.driver.tests.VerifyCheckoutFlow"/>-->
-<!--        </classes>-->
         <packages>
             <package name="com.learn.automation.driver.tests"/>
         </packages>
+    </test>
 
+    <test name="SauceDemo Tests edge">
+        <parameter name="browser" value="edge"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.learn.automation.driver.tests"/>
+        </packages>
+    </test>
+
+    <test name="SauceDemo Tests firefox">
+        <parameter name="browser" value="firefox"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.learn.automation.driver.tests"/>
+        </packages>
     </test>
 
 </suite>

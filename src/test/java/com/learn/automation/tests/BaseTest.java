@@ -1,4 +1,4 @@
-package com.learn.automation.driver.tests;
+package com.learn.automation.tests;
 
 import com.learn.automation.driver.DriverFactory;
 import com.learn.automation.utils.ConfigReader;
@@ -6,7 +6,6 @@ import com.learn.automation.utils.TestDataReader;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTest {
@@ -19,7 +18,13 @@ public class BaseTest {
 
         ConfigReader.loadProperties("qa");
         TestDataReader.loadProperties("testdata");
-        driver = DriverFactory.getDriver(browser);
+        DriverFactory.createDriver(browser);
+        driver = DriverFactory.getDriver();
+        System.out.println(
+                "Thread: " + Thread.currentThread().getId()
+                        + " | Browser: " + browser
+                        + " | Driver: " + driver
+        );
         driver.get(ConfigReader.getProperty("url"));
     }
 

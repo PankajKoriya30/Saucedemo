@@ -1,4 +1,4 @@
-package com.learn.automation.driver.pages;
+package com.learn.automation.pages;
 
 import com.learn.automation.utils.WaitUtils;
 import org.openqa.selenium.By;

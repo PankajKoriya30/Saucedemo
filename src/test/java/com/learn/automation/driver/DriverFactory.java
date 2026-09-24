@@ -5,13 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class DriverFactory {
 
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver createDriver(String browser){
 
@@ -29,30 +28,29 @@ public class DriverFactory {
                 prefs.put("profile.password_manager_enabled", false);
                 prefs.put("profile.password_manager_leak_detection", false);
                 options.setExperimentalOption("prefs", prefs);
-                driver = new ChromeDriver(options);
+                driver.set(new ChromeDriver(options));
                 break;
             case "firefox":
-                driver = new FirefoxDriver();
+                driver.set(new FirefoxDriver());
                 break;
             case "edge":
-                driver = new EdgeDriver();
+                driver.set(new EdgeDriver());
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
-        driver.manage().window().maximize();
-        return driver;
+        driver.get().manage().window().maximize();
+        return driver.get();
     }
 
-    public static WebDriver getDriver(String browser)
+    public static WebDriver getDriver()
     {
-        createDriver(browser);
-        return driver;
+        return driver.get();
     }
     public static void quitDriver(){
-        if(driver!=null){
-            driver.quit();
-            driver=null;
+        if(driver.get()!=null){
+            driver.get().quit();
+            driver.remove();
         }
     }
 }

@@ -1,9 +1,9 @@
-package com.learn.automation.driver.tests;
+package com.learn.automation.tests;
 
-import com.learn.automation.driver.pages.CartPage;
-import com.learn.automation.driver.pages.CheckoutInfoPage;
-import com.learn.automation.driver.pages.LoginPage;
-import com.learn.automation.driver.pages.ProductsPage;
+import com.learn.automation.pages.CartPage;
+import com.learn.automation.pages.CheckoutInfoPage;
+import com.learn.automation.pages.LoginPage;
+import com.learn.automation.pages.ProductsPage;
 import com.learn.automation.utils.TestDataReader;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
